@@ -1,0 +1,59 @@
+ Static hostname: centos
+       Icon name: computer-vm
+         Chassis: vm 🖴
+      Machine ID: 87c53eb62e3a4f9d9beed64eed17397f
+         Boot ID: a382a37bfce548c78323dc910dfed193
+  Virtualization: oracle
+Operating System: CentOS Stream 9
+     CPE OS Name: cpe:/o:centos:centos:9
+          Kernel: Linux 5.14.0-601.el9.x86_64
+    Architecture: x86-64
+ Hardware Vendor: innotek GmbH
+  Hardware Model: VirtualBox
+Firmware Version: VirtualBox
+
+CPU(s):                                  1
+On-line CPU(s) list:                     0
+Model name:                              12th Gen Intel(R) Core(TM) i5-12600K
+NUMA node0 CPU(s):                       0
+
+               total        used        free      shared  buff/cache   available
+Mem:           1.7Gi       333Mi       1.3Gi       4.0Mi       171Mi       1.3Gi
+Swap:          4.0Gi          0B       4.0Gi
+
+NAME              SIZE FSTYPE      MOUNTPOINTS
+sda                21G             
+├─sda1              2G xfs         /boot
+└─sda2             19G LVM2_member 
+  ├─cs_vbox-root   10G xfs         /
+  ├─cs_vbox-swap    4G swap        [SWAP]
+  └─cs_vbox-var     5G xfs         /var
+sr0              1024M             
+
+Filesystem               Type  Size  Used Avail Use% Mounted on
+/dev/mapper/cs_vbox-root xfs    10G  1.6G  8.5G  16% /
+/dev/mapper/cs_vbox-var  xfs   5.0G  968M  4.0G  20% /var
+/dev/sda1                xfs   2.0G  353M  1.6G  18% /boot
+
+NAME      TYPE      SIZE USED PRIO
+/dev/dm-1 partition   4G   0B   -2
+
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp0s3           UP             10.0.2.15/24 fd17:625c:f037:2:a00:27ff:fe6b:4987/64 fe80::a00:27ff:fe6b:4987/64 
+enp0s8           UP             192.168.1.101/24 fe80::5a01:a8bb:a99e:75f6/64 
+
+
+#
+# /etc/fstab
+# Created by anaconda on Tue Aug  5 22:38:01 2025
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk/'.
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info.
+#
+# After editing this file, run 'systemctl daemon-reload' to update systemd
+# units generated from this file.
+#
+/dev/mapper/cs_vbox-root /                       xfs     defaults        0 0
+UUID=a3d9a5d0-3d8d-4bc3-8b14-9f2d2f4782a0 /boot                   xfs     defaults        0 0
+/dev/mapper/cs_vbox-var /var                    xfs     defaults        0 0
+/dev/mapper/cs_vbox-swap none                    swap    defaults        0 0

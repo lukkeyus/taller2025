@@ -1,0 +1,59 @@
+ Static hostname: ubuntu
+       Icon name: computer-vm
+         Chassis: vm 🖴
+      Machine ID: 038e0fa99b79475f829cb2045dc85437
+         Boot ID: 99e306a2139c4d0b8c7ac2a6daa9d537
+  Virtualization: oracle
+Operating System: Ubuntu 24.04.1 LTS
+          Kernel: Linux 6.8.0-71-generic
+    Architecture: x86-64
+ Hardware Vendor: innotek GmbH
+  Hardware Model: VirtualBox
+Firmware Version: VirtualBox
+   Firmware Date: Fri 2006-12-01
+    Firmware Age: 18y 8month 1w 3d
+
+CPU(s):                               1
+On-line CPU(s) list:                  0
+Model name:                           12th Gen Intel(R) Core(TM) i5-12600K
+NUMA node0 CPU(s):                    0
+
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       337Mi       1.5Gi       1.0Mi       260Mi       1.6Gi
+Swap:          4.0Gi          0B       4.0Gi
+
+NAME    SIZE FSTYPE MOUNTPOINTS
+sda      25G        
+├─sda1    1M        
+├─sda2    2G ext4   /boot
+├─sda3   10G ext4   /
+├─sda4    5G ext4   /var
+└─sda5    4G swap   [SWAP]
+sr0    1024M        
+
+Filesystem     Type  Size  Used Avail Use% Mounted on
+/dev/sda3      ext4  9.8G  2.7G  6.6G  29% /
+/dev/sda4      ext4  4.9G  430M  4.2G  10% /var
+/dev/sda2      ext4  2.0G  100M  1.7G   6% /boot
+
+NAME      TYPE      SIZE USED PRIO
+/dev/sda5 partition   4G   0B   -2
+
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp0s3           UP             10.0.2.15/24 metric 100 fd17:625c:f037:2:a00:27ff:fed3:de5a/64 fe80::a00:27ff:fed3:de5a/64 
+enp0s8           UP             192.168.1.100/24 fe80::a00:27ff:fe78:6d9f/64 
+
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda3 during curtin installation
+/dev/disk/by-uuid/37e65bdd-922a-4f5f-a398-506b79f0187c / ext4 defaults 0 1
+# /var was on /dev/sda4 during curtin installation
+/dev/disk/by-uuid/88249a2d-8fd4-434a-ac7a-1570feb3336f /var ext4 defaults 0 1
+/dev/disk/by-uuid/dd1ac908-7a8c-4e1c-b0e5-1beac2e4bafd none swap sw 0 0
+# /boot was on /dev/sda2 during curtin installation
+/dev/disk/by-uuid/10a3f14d-7eae-4b3a-8362-3595421cbd32 /boot ext4 defaults 0 1
