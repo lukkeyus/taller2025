@@ -1,0 +1,93 @@
+---
+- name: Hardening básico Ubuntu
+  hosts: ubuntu
+  become: true
+
+  handlers:
+    - name: reiniciar ssh
+      service:
+        name: ssh
+        state: restarted
+        enabled: yes
+
+    - name: reiniciar si se actualizaron paquetes
+      reboot:
+
+    - name: reiniciar fail2ban
+      service:
+        name: fail2ban
+        state: restarted
+        enabled: yes
+
+  tasks:
+    - name: Actualizar índices APT
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Actualizar todos los paquetes (dist-upgrade)
+      apt:
+        upgrade: dist
+      register: apt_upgrade
+      notify: reiniciar si se actualizaron paquetes
+
+    - name: Instalar UFW y fail2ban
+      apt:
+        name:
+          - ufw
+          - fail2ban
+        state: present
+
+    # UFW: bloquear todo entrante, permitir solo SSH y habilitar
+    - name: UFW - negar entrante por defecto
+      command: ufw default deny incoming
+    - name: UFW - permitir SSH
+      command: ufw allow ssh
+    - name: UFW - habilitar (si no estaba activo)
+      shell: |
+        ufw status | grep -q "Status: active" || ufw --force enable
+
+    # SSH: solo clave pública y root deshabilitado
+    - name: Deshabilitar PasswordAuthentication
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?PasswordAuthentication\s+.*'
+        line: 'PasswordAuthentication no'
+      notify: reiniciar ssh
+
+    - name: Deshabilitar login de root
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?PermitRootLogin\s+.*'
+        line: 'PermitRootLogin no'
+      notify: reiniciar ssh
+
+    - name: Asegurar PubkeyAuthentication yes
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?PubkeyAuthentication\s+.*'
+        line: 'PubkeyAuthentication yes'
+      notify: reiniciar ssh
+
+    - name: Configurar jail de SSH en fail2ban
+      copy:
+        dest: /etc/fail2ban/jail.d/ssh.local
+        mode: "0644"
+        content: |
+          [sshd]
+          enabled  = true
+          port     = ssh
+          backend  = systemd
+          maxretry = 5
+          findtime = 10m
+          bantime  = 1h
+      notify: reiniciar fail2ban
+
+    - name: fail2ban activo y habilitado
+      service:
+        name: fail2ban
+        state: started
+        enabled: yes
+
+    - name: Disparar reinicio si hubo upgrades
+      meta: flush_handlers

@@ -1,0 +1,53 @@
+
+PLAY [Hardening básico Ubuntu] *************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ubuntu1]
+
+TASK [Actualizar índices APT] **************************************************
+changed: [ubuntu1]
+
+TASK [Actualizar todos los paquetes (dist-upgrade)] ****************************
+changed: [ubuntu1]
+
+TASK [Instalar UFW y fail2ban] *************************************************
+changed: [ubuntu1]
+
+TASK [UFW - negar entrante por defecto] ****************************************
+changed: [ubuntu1]
+
+TASK [UFW - permitir SSH] ******************************************************
+changed: [ubuntu1]
+
+TASK [UFW - habilitar (si no estaba activo)] ***********************************
+changed: [ubuntu1]
+
+TASK [Deshabilitar PasswordAuthentication] *************************************
+changed: [ubuntu1]
+
+TASK [Deshabilitar login de root] **********************************************
+changed: [ubuntu1]
+
+TASK [Asegurar PubkeyAuthentication yes] ***************************************
+changed: [ubuntu1]
+
+TASK [Configurar jail de SSH en fail2ban] **************************************
+changed: [ubuntu1]
+
+TASK [fail2ban activo y habilitado] ********************************************
+ok: [ubuntu1]
+
+TASK [Disparar reinicio si hubo upgrades] **************************************
+
+RUNNING HANDLER [reiniciar ssh] ************************************************
+changed: [ubuntu1]
+
+RUNNING HANDLER [reiniciar si se actualizaron paquetes] ************************
+changed: [ubuntu1]
+
+RUNNING HANDLER [reiniciar fail2ban] *******************************************
+changed: [ubuntu1]
+
+PLAY RECAP *********************************************************************
+ubuntu1                    : ok=15   changed=13   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

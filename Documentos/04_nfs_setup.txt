@@ -1,0 +1,28 @@
+
+PLAY [Configurar servidor NFS en CentOS] ***************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [centos1]
+
+TASK [Instalar NFS y firewalld] ************************************************
+changed: [centos1]
+
+TASK [Iniciar y habilitar servicios NFS y firewalld] ***************************
+ok: [centos1] => (item=firewalld)
+changed: [centos1] => (item=nfs-server)
+
+TASK [Crear carpeta para compartir] ********************************************
+changed: [centos1]
+
+TASK [Configurar /etc/exports] *************************************************
+changed: [centos1]
+
+TASK [Abrir puerto 2049 en firewalld] ******************************************
+changed: [centos1]
+
+RUNNING HANDLER [recargar exports] *********************************************
+changed: [centos1]
+
+PLAY RECAP *********************************************************************
+centos1                    : ok=7    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
