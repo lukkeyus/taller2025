@@ -1,0 +1,8 @@
+ubuntu1 | CHANGED | rc=0 >>
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       333Mi       1.5Gi       1.1Mi       296Mi       1.6Gi
+Swap:          4.0Gi          0B       4.0Gi
+centos1 | CHANGED | rc=0 >>
+               total        used        free      shared  buff/cache   available
+Mem:           1.7Gi       339Mi       1.3Gi       4.0Mi       213Mi       1.3Gi
+Swap:          4.0Gi          0B       4.0Gi
