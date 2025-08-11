@@ -4,13 +4,13 @@
 
 Se utilizarán **tres máquinas virtuales**:
 
-1. **Bastión — CentOS Stream 9 (con interfaz gráfica)**
+1. **Bastión - CentOS Stream 9 (con interfaz gráfica)**
    - VM con entorno gráfico.
    - Se usará para conectarse por **SSH** al resto de las VMs.
 
-2. **Nodo 1 — CentOS Stream 9 (instalación mínima)**
+2. **Nodo 1 - CentOS Stream 9 (instalación mínima)**
 
-3. **Nodo 2 — Ubuntu 24.04 LTS (instalación mínima)**
+3. **Nodo 2 - Ubuntu 24.04 LTS (instalación mínima)**
 
 ## Usuario y acceso
 
