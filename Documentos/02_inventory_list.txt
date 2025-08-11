@@ -1,0 +1,44 @@
+{
+    "_meta": {
+        "hostvars": {
+            "centos1": {
+                "ansibe_user": "sysadmin",
+                "ansible_hosts": "192.168.1.101",
+                "ansible_ssh_private_key_file": "~/.ssh/id_ed25519"
+            },
+            "ubuntu1": {
+                "ansibe_user": "sysadmin",
+                "ansible_host": "192.168.1.100",
+                "ansible_ssh_private_key_file": "~/.ssh/id_ed25519"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "ungrouped",
+            "linux",
+            "webserver"
+        ]
+    },
+    "centos": {
+        "hosts": [
+            "centos1"
+        ]
+    },
+    "linux": {
+        "children": [
+            "ubuntu",
+            "centos"
+        ]
+    },
+    "ubuntu": {
+        "hosts": [
+            "ubuntu1"
+        ]
+    },
+    "webserver": {
+        "hosts": [
+            "centos1"
+        ]
+    }
+}
