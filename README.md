@@ -17,3 +17,7 @@ Se utilizarán **tres máquinas virtuales**:
 - Usuario común en todas las VMs: `sysadmin`.
 - Acceso por **SSH con clave pública** (la clave del bastión se copia a cada nodo).
 - `sysadmin` está en **sudoers** con privilegios de administración
+
+## Instrucciones de uso 
+
+
