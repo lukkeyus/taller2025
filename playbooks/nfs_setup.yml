@@ -1,6 +1,6 @@
 ---
 - name: Configurar servidor NFS en CentOS
-  hosts: webserver
+  hosts: fileservers
   become: true
 
   tasks:
